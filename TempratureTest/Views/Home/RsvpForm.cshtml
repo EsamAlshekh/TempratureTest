@@ -1,0 +1,26 @@
+﻿@model TemperatureTest.Models.Person
+
+@{
+    ViewBag.Title = "RsvpForm";
+}
+
+<h2>RsvpForm</h2>
+<div class="row">
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Rsvp Form</h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+
+                <p><div class="form-group"><label>Your Name:</label><div>@Html.ValidationMessageFor(x => x.Name)</div>@Html.TextBoxFor(x => x.Name, new { @class = "form-control" })</div></p>
+                <p><div class="form-group"><label>Your Email:</label></div><div>@Html.ValidationMessageFor(x => x.Email)</div>@Html.TextBoxFor(x => x.Email, new { @class = "form-control" })</p>
+                <p><div class="form-group"><label>Your Phone:</label><div>@Html.ValidationMessageFor(x => x.Phone)</div>@Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })</div></p>
+                <p><div class="form-group"><label>Your Temperature :</label><div>@Html.ValidationMessageFor(x => x.Temperature)</div><input class="form-control" type="number" name="Temperature" value=""></div></p>
+                <div class="btn btn-success"><input type="submit" value="SubmitRsvp" /></div>
+
+            }
+        </div>
+
+    </div>
+
+</div>
