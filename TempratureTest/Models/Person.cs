@@ -18,7 +18,7 @@ namespace TemperatureTest.Models
         [Required(ErrorMessage = "The input must be anummber")]
         public  int Temperature { get; set; }
 
-
+        //
         public static string Theresult(int temperature)
         {
             if (temperature == 37)
