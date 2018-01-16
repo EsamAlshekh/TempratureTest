@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TemperatureTest.Models;
+using TempratureTest.Models;
 
 namespace TemperatureTest.Controllers
 {
@@ -68,6 +69,57 @@ namespace TemperatureTest.Controllers
             //    return View();
             //}
 
+        }
+        [HttpGet]
+        public ActionResult GassingGame()
+        {
+
+            if (Session["randomNumber"] == null)
+            {
+                Session["randomNumber"] = new Random(DateTime.Now.Millisecond).Next(1, 10);
+
+            }
+            if (Session["counter"] == null)
+            {
+                Session["counter"] = 0;
+
+            }
+            //if (Session["list"] == null)
+            //{
+            //    Session["list"] =new List<int>();
+
+            //}
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult GassingGame(Game game)
+        {
+            int counter = int.Parse(Session["counter"].ToString());
+            Session["counter"] = counter + 1;
+
+            if (ModelState.IsValid)
+            {
+                if (Game.Result(game.Enter)!= "Congratulation")
+                {
+                    //Session["counter"] = counter + 1;
+                    ViewBag.Result = Game.Result(game.Enter);
+                   // ViewBag.Count = counter;
+                    return View();
+                }
+                else
+                {
+                    ViewBag.Count = counter+1;
+                    Session["counter"] = 0;
+                    return View("ResultOfGassingGame", game);
+                }
+
+                
+            }
+            else
+            {
+                return View();
+            }
         }
 
     }

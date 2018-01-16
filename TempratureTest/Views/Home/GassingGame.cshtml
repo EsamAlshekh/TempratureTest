@@ -1,0 +1,39 @@
+﻿@model TempratureTest.Models.Game
+
+@{
+    ViewBag.Title = "GassingGame";
+}
+
+<h2>GassingGame</h2>
+
+<div class="row">
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h4>Gassing Game</h4></div>
+        <div class="panel-body">
+            @using (Html.BeginForm())
+            {
+                <p><div class="form-group"><label>Enter Random Number :</label><div>@Html.ValidationMessageFor(x => x.Enter)</div><input name="Enter" class="form-control" type="number" value=""></div></p>
+                <div class="btn btn-success"><input type="submit" id="button1" value="SubmitRsvp" /></div>
+
+            }
+        </div>
+
+    </div>
+
+</div>
+<div><h2>@ViewBag.Result</h2></div>
+<div><h3>number of trying: @Session["counter"]</h3> </div>
+
+<!--<div>The number of trying: <span class="count">0</span></div>
+<script>
+    $(document).ready(function () {
+        var counter = parseInt($('.count').html());
+        $('#button1').click(function () {
+            $('.count').html(counter + 1);
+
+        });
+    });
+
+
+</script>
+-->
