@@ -95,11 +95,11 @@ namespace TemperatureTest.Controllers
         [HttpPost]
         public ActionResult GassingGame(Game game)
         {
-            int counter = int.Parse(Session["counter"].ToString());
-            Session["counter"] = counter + 1;
 
             if (ModelState.IsValid)
             {
+                int counter = int.Parse(Session["counter"].ToString());
+                Session["counter"] = counter + 1;
                 if (Game.Result(game.Enter)!= "Congratulation")
                 {
                     //Session["counter"] = counter + 1;
