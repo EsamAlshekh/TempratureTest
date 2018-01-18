@@ -111,6 +111,7 @@ namespace TemperatureTest.Controllers
                 {
                     ViewBag.Count = counter+1;
                     Session["counter"] = 0;
+                    Session["randomNumber"] = new Random(DateTime.Now.Millisecond).Next(1, 10);
                     return View("ResultOfGassingGame", game);
                 }
 
